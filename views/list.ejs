@@ -1,0 +1,61 @@
+
+<!--include header -->
+    <%- include('include/_header')%>
+    <!--/include header -->
+    
+    <main id="main-site">
+        <div class="container">
+            <div class="box-nav d-flex justify-between">
+                <a href="/add-item" class="border-shadow new-item">
+                    <span class="text-gradient">New Item<i class="fa-solid fa-gem"></i></span>
+                </a>
+            </div>
+            <form action="/" method="post">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Item No.</th>
+                            <th>Name</th>
+                            <th>ID</th>
+                            <th>Net Price</th>
+                            <th>Stock</th>
+                            <th>Quntity sold</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i=0;i<items.length;i++){%>
+                        <tr>
+                            <td><%= i+1 %></td>
+                            <td><%= items[i].name %></td>
+                            <td><%= items[i].id %></td>
+                            <td><%= items[i].price %></td>
+                            <td><%= items[i].stock %></td>
+                            <td><%= items[i].sold %></td>
+                            <!-- <td>007</td>
+                            <td>3400</td>
+                            <td>23</td>
+                            <td>32</td> -->
+                            <td>
+                                <a href="/update-item?id=<%= items[i]._id%>" class="btn border-shadow update">
+                                    <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+                                </a>
+                                <a class="btn border-shadow delete" data-id=<%= items[i]._id%> >
+                                    <span class="text-gradient"><i class="fas fa-times"></i></span>
+                                </a>
+                            </td>
+                            <!-- <td></td> -->
+                        </tr>
+                        <%}%>
+                    </tbody>
+                </table>
+            </form>
+            
+        </div>
+    </main>
+    <!-- include footer-->
+    <%- include('include/_footer')%>
+
+<!-- /include footer-->
+<!-- -->
+<!-- -->

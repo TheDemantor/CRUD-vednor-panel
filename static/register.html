@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Welcome</title>
+    <link rel="shortcut icon" href="./logo1.png" type="image/x-icon">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header id="header">
+        <nav>
+            <dic class="container">
+                <img src="./logo1.png" id="logo" alt="log">
+                <div class="text-center">
+                    <a href="/" class="nav-brand text-dark">Sign In &nbsp;<i class="fa-solid fa-hand-holding-heart"></i></a>
+                </div>
+            </dic>
+        </nav>
+    </header>
+		<h1 class="text-center">Registration</h1>
+		<form id="reg-form">
+			<div class="text-center">
+
+				<input class="form-group" type="text" autocomplete="off" id="username" placeholder="Username" />
+				<input class="form-group" type="password" autocomplete="off" id="password" placeholder="Password" />
+				<input class="form-group" id="reg-submit" type="submit" value="Submit Form" />
+			</div>
+			</form>
+
+		<script>
+			const form = document.getElementById('reg-form')
+			form.addEventListener('submit', registerUser)
+
+			async function registerUser(event) {
+				event.preventDefault()
+				const username = document.getElementById('username').value
+				const password = document.getElementById('password').value
+
+				const result = await fetch('/api/register', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({
+						username,
+						password
+					})
+				}).then((res) => res.json())
+
+				if (result.status === 'ok') {
+					// everythign went fine
+					alert('Success in html')
+					window.location.replace("http://localhost:3000/list");
+					
+				} else {
+					alert(result.error)
+				}
+			}
+		</script>
+	</body>
+</html>

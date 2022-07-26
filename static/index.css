@@ -1,0 +1,73 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+
+}
+a{
+    text-decoration: none;
+    font-family: 'Raleway', sans-serif;;
+}
+#logo{
+        /* float: right; */
+        z-index: 3;
+        position: absolute;
+        /* right: 0px; */
+        height: 147px;
+        width: 150px;
+}
+
+.container{
+    max-width: 1024px;
+    margin: auto;
+    /* border: 2px solid firebrick; */
+}
+.nav-brand{
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.d-flex{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.justify-between{
+    justify-content: space-between;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.border-shadow{
+    border: 1px solid var(--border-btn);
+    border-radius: 5px;
+    box-shadow: 1px 3px 5px rgb(248, 152, 152);
+}
+
+.text-dark{
+    color:var(--dark);
+}
+.inline{
+    display: inline-block;
+}
+.text-light{
+    color:var(--light)
+}
+.text-gradient{
+    background: linear-gradient(to right,rgb(255, 0, 0),rgb(0, 195, 255));
+    -webkit-background-clip: text;
+    background-clip: txet;
+    -webkit-text-fill-color: transparent;
+}
+
+#header nav{
+    background-color: aquamarine;
+    padding: 1em 0;
+    width: 100%;
+    margin-bottom: 50px;
+}
+.new-item{
+    margin: 5px;
+}

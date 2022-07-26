@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD KARO</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+    
+</head>
+<body>
+    <header id="header">
+        <nav>
+            <dic class="container">
+                <div class="text-center">
+                    <a href="/" class="nav-brand text-dark">List of items</a>
+                </div>
+            </dic>
+        </nav>
+    </header>
+
+    <main id="main-site">
+        <div class="container">
+            <div class="box-nav d-flex justify-between">
+                <div class="filter">
+                    <a href="/list"><i class="fas fa-angle-double-left"></i> All items</a>
+                </div>
+            </div>
+            <div class="form-title text-center">
+                <h2 class="text-dark">New Item</h2>
+                <span>Fill the details to add a new item to the inventory:</span>
+            </div>
+
+            <form action="/api/items" method="post" id="add_item">
+               <div class="new_item">
+                   <div class="form-group">
+                       <label for="name" class="text-dark">Name</label>
+                       <input type="hidden" name="id" value="">
+                       <input type="text" name="name" value="" placeholder="Blue Diamond">
+                   </div>
+                   <div class="form-group">
+                       <label for="id" class="text-dark">Item Id.</label>
+                       <input type="text" name="id" value="" placeholder="s107">
+                   </div>
+                   <div class="form-group">
+                       <label for="price" class="text-dark">Net Price</label>
+                       <input type="number" name="price" value="" placeholder="$20">
+                   </div>
+                   <div class="form-group">
+                       <label for="stock" class="text-dark">In stock</label>
+                       <input type="number" name="stock" value="" placeholder="N">
+                   </div>
+                   <div class="form-group">
+                    <label for="inputTag" class="text-dark taking-img">
+                        Select Image 
+                        <i class="fa fa-2x fa-camera"></i>
+                        <input id="inputTag" type="file"/>
+                        
+                        <span id="imageName"></span>
+                      </label>
+                   </div>
+                   <div class="form-group">
+                       <button type="submit" class="btn text-dark update">Save</button>
+                   </div>
+                   
+               </div>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        let input = document.getElementById("inputTag");
+        let imageName = document.getElementById("imageName")
+
+        input.addEventListener("change", ()=>{
+            let inputImage = document.querySelector("input[type=file]").files[0];
+
+            imageName.innerText = inputImage.name;
+        })
+    </script>
+
+</body>
+</html>
